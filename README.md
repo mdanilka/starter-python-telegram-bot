@@ -16,6 +16,9 @@ This is simple Python Telegram Bot.
     curl https://api.telegram.org/bot${BOT_TOKEN}/setWebhook
         -F "url=https://${CYCLIC_URL}/webhook/" \
         -F "secret_token=${SECRET_TOKEN}"
+    curl https://api.telegram.org/bot6238426162:AAHBpjFMjcJaYWF8nuqGK775LQLttCOuTdk/setWebhook
+        -F "url=https://tender-teal-turtleneck-shirt.cyclic.app/webhook/" \
+        -F "secret_token=62384k"
     ```
 1) Message you bot with `/start` or just say `Hello!`
 1) Check your bot's status: `https://api.telegram.org/bot${BOT_TOKEN}/getWebhookInfo`
