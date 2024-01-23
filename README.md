@@ -16,7 +16,7 @@ This is simple Python Telegram Bot.
     curl https://api.telegram.org/bot${BOT_TOKEN}/setWebhook
         -F "url=https://${CYCLIC_URL}/webhook/" \
         -F "secret_token=${SECRET_TOKEN}"
-    curl https://api.telegram.org/bot6238426162:AAHBpjFMjcJaYWF8nuqGK775LQLttCOuTdk/setWebhook
+    curl https://api.telegram.org/bot6238426162:AAE78_N8tMFZvaDRq6vdn5Mg2KtJwYvxY6A/setWebhook
         -F "url=https://tender-teal-turtleneck-shirt.cyclic.app/webhook/" \
         -F "secret_token=62384k"
     ```
