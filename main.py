@@ -2,10 +2,28 @@ import config
 import telebot
 from aiohttp import web
 import ssl
-
 WEBHOOK_LISTEN = "0.0.0.0"
 WEBHOOK_PORT = 8181
+import os
+from dotenv import load_dotenv
+from fastapi import FastAPI, Header, HTTPException, Depends
+from telegram import Update, Bot
+from pydantic import BaseModel
 
+class TelegramUpdate(BaseModel):
+    update_id: int
+    message: dict
+
+app = FastAPI()
+
+# Load variables from .env file if present
+load_dotenv()
+
+# Read the variable from the environment (or .env file)
+bot_token = os.getenv('BOT_TOKEN')
+secret_token = os.getenv("SECRET_TOKEN")
+#webhook_url = os.getenv('CYCLIC_URL', 'http://localhost:8181') + "/webhook/"
+bot = Bot(token=bot_token)
 API_TOKEN = config.token
 bot = telebot.TeleBot(API_TOKEN)
 
