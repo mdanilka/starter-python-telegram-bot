@@ -27,6 +27,6 @@ uvicorn==0.22.0
 uvloop==0.17.0
 watchfiles==0.19.0
 websockets==11.0.3
-config
-pytelegrambotapi
-aiohttp
+config==0.5.1
+pytelegrambotapi==4.15.2
+aiohttp==3.9.1
