@@ -25,10 +25,9 @@ bot = Bot(token=bot_token)
 def auth_telegram_token(x_telegram_bot_api_secret_token: str = Header(None)) -> str:
     print(x_telegram_bot_api_secret_token, secret_token,'1')# return true # uncomment to disable authentication
     if x_telegram_bot_api_secret_token != secret_token:
-       raise HTTPException(status_code=403, detail="Not authenticated")
-    elif x_telegram_bot_api_secret_token == secret_token:
-        raise HTTPException(status_code=200, detail="Authenticated")
-    #print(x_telegram_bot_api_secret_token, secret_token, '2')
+        raise HTTPException(status_code=403, detail="Not authenticated")
+    else:
+        raise HTTPException(status_code=200, detail="OK")
     return x_telegram_bot_api_secret_token
     
 
