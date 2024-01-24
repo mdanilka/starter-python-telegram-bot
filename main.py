@@ -44,4 +44,9 @@ async def handle_webhook(update: TelegramUpdate, token: str = Depends(auth_teleg
         await bot.send_message(chat_id=chat_id, reply_to_message_id=update.message["message_id"], text="Yo!")
 
     return {"ok": True}
-
+while True:
+    try:
+        print("Starting bot")
+        auth_telegram_token()
+    except Exception:
+        print("Something bad happened. Restarting")
