@@ -47,6 +47,6 @@ async def handle_webhook(update: TelegramUpdate, token: str = Depends(auth_teleg
 while True:
     try:
         print("Starting bot")
-        auth_telegram_token()
     except Exception:
         print("Something bad happened. Restarting")
+        auth_telegram_token()
