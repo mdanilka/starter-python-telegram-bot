@@ -1,4 +1,4 @@
-import os
+simport os
 import telebot
 from dotenv import load_dotenv
 from fastapi import FastAPI, Header, HTTPException, Depends
@@ -32,7 +32,7 @@ def auth_telegram_token(x_telegram_bot_api_secret_token: str = Header(None)) -> 
     
 
 @app.post("/webhook/")
-async def handle_webhook(update: TelegramUpdate, token: str = Depends(auth_telegram_token), message):
+async def handle_webhook(message, update: TelegramUpdate, token: str = Depends(auth_telegram_token)):
     chat_id = update.message["chat"]["id"]
     text = update.message["text"]
     # print("Received message:", update.message)
