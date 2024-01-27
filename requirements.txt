@@ -30,3 +30,4 @@ websockets==11.0.3
 config==0.5.1
 pytelegrambotapi==4.15.2
 aiohttp==3.9.1
+aiogram==3.3.0
