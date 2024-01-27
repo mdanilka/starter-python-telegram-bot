@@ -1,4 +1,4 @@
-simport os
+import os
 import telebot
 from dotenv import load_dotenv
 from fastapi import FastAPI, Header, HTTPException, Depends
