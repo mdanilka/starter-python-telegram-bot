@@ -1,10 +1,8 @@
 import os
-import telebot
 from dotenv import load_dotenv
 from fastapi import FastAPI, Header, HTTPException, Depends
 from telegram import Update, Bot
 from pydantic import BaseModel
-from telebot import types
 class TelegramUpdate(BaseModel):
     update_id: int
     message: dict
@@ -19,7 +17,6 @@ bot_token = os.getenv('BOT_TOKEN')
 secret_token = os.getenv("SECRET_TOKEN")
 #webhook_url = os.getenv('CYCLIC_URL', 'http://localhost:8181') + "/webhook/"
 bot = Bot(token=bot_token)
-bot1 = telebot.TeleBot(bot_token)
 #bot.set_webhook(url=webhook_url)
 #webhook_info = bot.get_webhook_info()
 #print(webhook_info)
@@ -32,7 +29,7 @@ def auth_telegram_token(x_telegram_bot_api_secret_token: str = Header(None)) -> 
     
 
 @app.post("/webhook/")
-async def handle_webhook(message, update: TelegramUpdate, token: str = Depends(auth_telegram_token)):
+async def handle_webhook(update: TelegramUpdate, token: str = Depends(auth_telegram_token)):
     chat_id = update.message["chat"]["id"]
     text = update.message["text"]
     # print("Received message:", update.message)
