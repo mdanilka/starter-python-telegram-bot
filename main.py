@@ -30,7 +30,7 @@ def auth_telegram_token(x_telegram_bot_api_secret_token: str = Header(None)) -> 
     
 @bot.message_handler(content_types = ['text'])
 def abc(message):
-   await bot.send_message(message.chat.id, 'Hello!')
+   bot.send_message(message.chat.id, 'Hello!')
    return {"ok": True}
 #@app.post("/webhook/")
 #async def handle_webhook(update: TelegramUpdate, token: str = Depends(auth_telegram_token)):
