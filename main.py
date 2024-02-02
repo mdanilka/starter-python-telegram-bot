@@ -1,4 +1,6 @@
 import os
+import telebot
+from telebot import types
 from dotenv import load_dotenv
 from fastapi import FastAPI, Header, HTTPException, Depends
 from telegram import Update, Bot
