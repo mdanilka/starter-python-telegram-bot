@@ -7,7 +7,7 @@ from telegram import Update, Bot
 from pydantic import BaseModel
 class TelegramUpdate(BaseModel):
     update_id: int
-    message: dict
+
 
 app = FastAPI()
 
