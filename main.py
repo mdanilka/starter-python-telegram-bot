@@ -5,8 +5,8 @@ from dotenv import load_dotenv
 from fastapi import FastAPI, Header, HTTPException, Depends
 from telegram import Update, Bot
 from pydantic import BaseModel
-class TelegramUpdate(BaseModel):
-    update_id: int
+#class TelegramUpdate(BaseModel):
+    #update_id: int
 
 
 app = FastAPI()
@@ -34,7 +34,7 @@ def auth_telegram_token(x_telegram_bot_api_secret_token: str = Header(None)) -> 
 #def abc(message):
    
 @app.post("/webhook/")
-def abcd(message, update: TelegramUpdate, token: str = Depends(auth_telegram_token)):
+def abcd(message):
 #async def handle_webhook(update: TelegramUpdate, token: str = Depends(auth_telegram_token)):
     bot.send_message(message.chat.id, 'Hello!')
     return {"ok": True}
