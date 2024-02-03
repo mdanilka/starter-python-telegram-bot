@@ -30,12 +30,15 @@ def auth_telegram_token(x_telegram_bot_api_secret_token: str = Header(None)) -> 
         raise HTTPException(status_code=403, detail="Not authenticated")
     return x_telegram_bot_api_secret_token
     
-@bot.message_handler(content_types = ['text'])
-def abc(message):
-   bot.send_message(message.chat.id, 'Hello!')
-   return {"ok": True}
-#@app.post("/webhook/")
+#@bot.message_handler(content_types = ['text'])
+#def abc(message):
+   
+@app.post("/webhook/")
+def abcd(message, update: TelegramUpdate, token: str = Depends(auth_telegram_token)):
 #async def handle_webhook(update: TelegramUpdate, token: str = Depends(auth_telegram_token)):
+    bot.send_message(message.chat.id, 'Hello!')
+    return {"ok": True}
+    
     #chat_id = update.message["chat"]["id"]
     #text = update.message["text"]
     # print("Received message:", update.message)
